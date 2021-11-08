@@ -1,0 +1,16 @@
+.margins {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.userName {
+    padding-right: 5px;
+}
+
+.headerFlex {
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -1,0 +1,12 @@
+form {
+    position: absolute;
+    top: 20rem;
+    left: 20rem;
+    width: 65rem;
+    border: 1px dashed;
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
