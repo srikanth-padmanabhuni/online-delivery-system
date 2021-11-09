@@ -1,3 +1,4 @@
 export const staticData = {
-    backendBaseUrl: "http://localhost:8080"
+    backendBaseUrl: "http://localhost:8080",
+    userName: "userName"
 }

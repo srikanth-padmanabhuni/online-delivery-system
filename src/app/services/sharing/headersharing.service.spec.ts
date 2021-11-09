@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HeaderService } from './header.service';
+import { HeaderSharingService } from './headersharing.service';
 
-describe('HeaderService', () => {
-  let service: HeaderService;
+describe('HeaderSharingService', () => {
+  let service: HeaderSharingService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HeaderService);
+    service = TestBed.inject(HeaderSharingService);
   });
 
   it('should be created', () => {
