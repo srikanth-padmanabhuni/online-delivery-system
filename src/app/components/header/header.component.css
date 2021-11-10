@@ -1,16 +1,15 @@
-.margins {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.userName {
-    padding-right: 5px;
-}
-
-.headerFlex {
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+.mainDiv {
+    width: 111%;
     justify-content: center;
+    align-items: stretch;
+    margin-top: 1rem;
+}
+
+.leftDiv {
+    margin-left: 1rem;
+}
+
+.rightDiv {
+    position: inherit;
+    display: inline-flex;
 }

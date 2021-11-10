@@ -1,0 +1,98 @@
+.mainDiv {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.rest_list {
+    border-bottom: 2px dashed indianred;
+    padding: 5px;
+   /*background-color: gainsboro;*/
+    font-size: large;
+}
+
+.leftDiv {
+    border-right: 1px dashed palevioletred;
+    min-height: 49rem;
+    scroll-behavior: smooth;
+    overflow: auto;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+#selectedRestaurentId {
+    margin-right: 5px;
+}
+
+.rating {
+    float: right;
+    font-family: cursive;
+}
+
+ul {
+    margin-left: -1rem;
+    list-style: none;
+}
+
+.rest_heading {
+    margin-left: 11rem;
+    margin-top: 1rem;
+}
+
+.rightDiv {
+    border: 1px dashed #f39393;
+    border-radius: 10px;
+    background-color: lightgrey;
+    min-height: 49rem;
+    overflow: auto
+}
+
+.noItemsDiv {
+    position: fixed;
+    top: 50%;
+    left: 55%;
+}
+
+.item_heading {
+    margin-left: 23rem;
+    margin-top: 0.6rem;
+}
+
+.items_list {
+    border-bottom: 1px solid darkred;
+    height: 5.3rem;
+    background-color: aliceblue;
+    padding: 4px;
+}
+
+.item_list_firstDiv {
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+.item_list_mainDiv {
+    display: flex;
+    align-items: self-start;
+}
+
+.item_list_secondDiv {
+    border-right: 1px dashed black;
+    border-left: 1px dashed black;
+    padding-left: 1.7rem;
+}
+
+.item_list_thirdDiv {
+    padding-top: 1rem;
+    padding-left: 2rem;
+    font-family: cursive;
+}
+
+.itemDesc {
+    font-family: emoji;
+    font-size: 15px;
+}
+
+.noRestaurentsDiv {
+    margin-top: 18rem;
+    margin-left: 7rem;
+}

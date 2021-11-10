@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { staticData } from 'src/staticData';
 
 @Injectable({
   providedIn: 'root'

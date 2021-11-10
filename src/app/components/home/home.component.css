@@ -1,0 +1,22 @@
+.leftDiv {
+    position: inherit;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-right: 2px dashed #d42942;
+    display: inline-flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.rightDiv {
+    padding: 10rem;
+}
+
+.buttonsCss {
+    margin-bottom: 5px;
+    width: 25rem;
+}
+
+.buttonsDiv {
+    margin-top: 13rem;
+}

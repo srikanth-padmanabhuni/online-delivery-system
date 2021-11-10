@@ -1,1 +1,65 @@
-<p>dashboard works!</p>
+<div class="row mainDiv">
+    <div class="col-4 leftDiv">
+        <h4 class="rest_heading"> Restaurents </h4>
+        <hr/>
+        <div *ngIf="restaurents">
+            <ul *ngFor="let rest of restaurents">
+                <li class="rest_list">
+                    <input 
+                        class="form-check-input" 
+                        type="radio" 
+                        name="selectedRestaurentId" 
+                        id="selectedRestaurentId" 
+                        value="{{rest.rest_id}}" 
+                        [(ngModel)]="selectedRestaurentId"
+                        (change)="selectRestaurent(selectedRestaurentId)">
+                    <label class="form-check-label" for="selectedRestaurentId" style="width: 90%;">
+                        <span>{{rest.rest_name}}</span>
+                        <span class="rating"> 
+                            <fa-icon [icon]="starIcon" style="color: darkcyan"></fa-icon> &nbsp;{{rest.rest_rating}}
+                        </span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="!restaurents || restaurents.length == 0"  class="noRestaurentsDiv">
+            <h4> No restaurents to display </h4>
+        </div>
+    </div>
+    <div class="col-8 rightDiv">
+        <div *ngIf="selectedRestaurent && itemsList && itemsList.length != 0">
+            <h3 class="item_heading"> Items from {{selectedRestaurent.rest_name}} </h3>
+            <hr/>
+            <ul *ngFor="let item of itemsList">
+                <li class="items_list">
+                    <div class="row item_list_mainDiv">
+                        <div class="col-1 item_list_firstDiv">
+                            <span *ngIf="isItemInCart(item.itemId)">
+                                <button class="btn" (click)="removeFromCart(item);">
+                                    <fa-icon [icon]="cartIcon" style="font-size: xx-large;color: green;"></fa-icon>
+                                </button>
+                            </span>
+                            <span *ngIf="!isItemInCart(item.itemId)">
+                                <button class="btn" (click)="addToCart(item);">
+                                    <fa-icon [icon]="cartIcon" style="font-size: xx-large;"></fa-icon>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="col-7 item_list_secondDiv">
+                            <h4>{{item.itemName}}</h4>
+                            <p class="itemDesc"> {{item.itemDescription}} </p>
+                        </div>
+                        <div class="col-3 item_list_thirdDiv">
+                            {{item.itemType}} <br/>
+                            <fa-icon [icon]="rupeeSign" style="font-size: small;"></fa-icon>{{item.itemPrice}}
+                        </div>
+                    </div>  
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="!selectedRestaurent || !itemsList || itemsList.length == 0" class="noItemsDiv">
+            <h3 *ngIf="!selectedRestaurent"> Select any restaurent to display items </h3>
+            <h3 *ngIf="selectedRestaurent && (!itemsList || itemsList.length == 0)"> No Iteams to display </h3>
+        </div>
+    </div>
+</div>

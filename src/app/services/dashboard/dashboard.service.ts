@@ -20,10 +20,20 @@ export class DashboardService {
                 .set('secretappkey', environment.secretAppKey);
   }
 
-  getItems(pageNo: number, pageSize: number) {
+  getItems(pageNo: number, pageSize: number, selectedRestaurent: any) {
     let url = dashboardRoutes.listItems;
     url = url.replace(':PAGE_NO', pageNo.toString());
     url = url.replace(':PAGE_SIZE', pageSize.toString());
+    if(selectedRestaurent) {
+      url = url.replace(':REST_ID', selectedRestaurent.toString());
+    }
+    return this.httpClient.get(this.baseUrl+url, {headers: this.headers});
+  }
+
+  getRestaurents(filter: string, value: string) {
+    let url = dashboardRoutes.listRestaurents;
+    url = url.replace(':FILTER', filter);
+    url = url.replace(':VALUE', value);
 
     return this.httpClient.get(this.baseUrl+url, {headers: this.headers});
   }

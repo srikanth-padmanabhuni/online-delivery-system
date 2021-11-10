@@ -1,0 +1,23 @@
+<div>
+    <ul style="list-style: none;" *ngFor="let cartItem of cartItems">
+        <li>
+            <div class="row">
+                <div class="col-6">
+                    <span>{{cartItem.itemName}}</span><br/>
+                    <p>{{cartItem.itemDescription}}</p>
+                </div>
+                <div class="col-4">
+                    <span>{{cartItem.itemType}}</span><br/>
+                    <span>{{cartItem.itemPrice}}</span>
+                </div>
+                <div class="col-2">
+                    <span>
+                        <button class="btn btn-danger btn-lg" (click)="removeFromCart(cartItem)">
+                            <fa-icon [icon]="deleteIcon"></fa-icon>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

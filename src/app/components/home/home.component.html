@@ -1,19 +1,21 @@
-<div class="row">
-    <div class="col-6">
-
+<div class="row mainDiv">
+    <div class="col-6 leftDiv">
+        <img src="./../../../assets/home_image.png" />
     </div>
-    <div class="col-6">
-        <button 
-            type="submit" 
-            class="btn btn-primary" 
-            (click)="login()">
-            Login
-        </button>
-        <button 
-            type="submit" 
-            class="btn btn-primary" 
-            (click)="register()">
-            Register
-        </button>
+    <div class="col-6 rightDiv">
+        <div class="buttonsDiv">
+            <button 
+                type="submit" 
+                class="btn btn-primary buttonsCss btn-lg btn-block" 
+                (click)="login()">
+                Login
+            </button>
+            <button 
+                type="submit" 
+                class="btn btn-primary buttonsCss btn-lg btn-block" 
+                (click)="register()">
+                Register
+            </button>
+        </div>
     </div>
 </div>

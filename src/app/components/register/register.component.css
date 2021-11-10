@@ -1,12 +1,26 @@
 form {
-    position: absolute;
-    top: 20rem;
-    left: 20rem;
-    width: 65rem;
-    border: 1px dashed;
+    position: initial;
+    width: 45rem;
     padding: 2rem;
 }
 
 .form-group {
     margin-bottom: 10px;
+}
+
+.leftDiv {
+    position: inherit;
+    border-right: 2px dashed #5178f7;
+    display: inline-flex;
+    padding-left: 11rem
+}
+
+.rightDiv {
+    padding: 10px;
+}
+
+.mainDiv {
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 9rem;
 }
