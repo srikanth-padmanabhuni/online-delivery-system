@@ -36,4 +36,8 @@ export class UserService {
     return this.httpClient.get(this.baseUrl+url, {headers: this.headers});
   }
 
+  logout() {
+    return this.httpClient.get(this.baseUrl+userRoutes.logout);
+  }
+
 }

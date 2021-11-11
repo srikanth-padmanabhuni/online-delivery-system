@@ -99,3 +99,10 @@ input {
 .confirmOrderListPrice {
     border-left: 1px dashed darkred
 }
+
+.noCartItems {
+    position: fixed;
+    top: 50%;
+    left: 39%;
+    font-size: xx-large;
+}

@@ -9,6 +9,7 @@ export class HeaderSharingService {
   public userName: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor() { 
+    this.getUsernameFromLocal();
   }
 
   setUserName(userName: string) {
@@ -17,5 +18,9 @@ export class HeaderSharingService {
 
   getUserName() {
     return this.userName.asObservable();
+  }
+
+  getUsernameFromLocal() {
+    this.userName.next(localStorage.getItem('userName'));
   }
 }
