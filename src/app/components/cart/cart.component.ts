@@ -50,8 +50,8 @@ export class CartComponent implements OnInit {
   }
 
   calculatePrice() {
+    this.totalPrice = 0;
     this.cartItems.forEach((cartItem: any) => {
-      this.calculateIndividualItemPrice(cartItem);
       this.totalPrice += cartItem.itemTotalPrice; 
     })
   }
@@ -82,8 +82,10 @@ export class CartComponent implements OnInit {
         }
         cartItem.quantity = ((!cartItemObj.quantity || cartItemObj.quantity == 0) ? 1 : cartItemObj.quantity);
         cartItem.itemTotalPrice = (cartItemObj.quantity * cartItemObj.itemPrice);
+        this.calculateIndividualItemPrice(cartItem);
       }
-    })
+    });
+    this.calculatePrice();
     this.cartSharingService.addToCart(this.cartItems);
   }
 
