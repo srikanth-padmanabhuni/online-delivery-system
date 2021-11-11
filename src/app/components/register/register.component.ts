@@ -60,8 +60,8 @@ export class RegisterComponent implements OnInit {
           localStorage.setItem("userName", this.userName);
           localStorage.setItem("sessionToken", sessionToken);
           localStorage.setItem("role", userRole);
-          this.initializeData();
           this.headerDataSharing.setUserName(this.userName);
+          this.initializeData();
           this.router.navigate(['/dashboard']);
         } else {
           console.log(registerdUser.data);

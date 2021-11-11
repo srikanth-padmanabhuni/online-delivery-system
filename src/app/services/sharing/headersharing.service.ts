@@ -8,9 +8,14 @@ export class HeaderSharingService {
 
   public userName: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor() { }
+  constructor() { 
+  }
 
   setUserName(userName: string) {
     this.userName.next(userName);
+  }
+
+  getUserName() {
+    return this.userName.asObservable();
   }
 }

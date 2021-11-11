@@ -74,21 +74,11 @@ export class DashboardComponent implements OnInit {
   }
 
   getRestuarents() {
-    // staticData.restaurents.forEach((rest : any) => {
-    //   this.restaurents.push(rest);
-    // });
-    // console.log(this.restaurents);
-    // staticData.items.forEach( (item) => {
-    //   this.itemsList.push(item);
-    // })
-    // console.log(this.itemsList);
     this.dashboardService.getRestaurents(this.filter, this.value).subscribe(
       (restaurentsData: any) => {
         if(restaurentsData.success) {
           console.log(restaurentsData.data);
-          restaurentsData.data.restaurants.forEach( (restaurent: any) => {
-            this.restaurents[restaurent.rest_id] = restaurent;
-          });
+          this.restaurents = restaurentsData.data.restaurants;
           this.notification.showSuccessMessage("Retreived restuerents successfully!!!", "success");
         } else {
           console.log(restaurentsData.data);
@@ -114,20 +104,6 @@ export class DashboardComponent implements OnInit {
   selectRestaurent(restaurentId: any) {
     this.initializeSelectedrestaurent(restaurentId); 
     this.getItems();
-    // const menuItems:any = staticData.menuItems;
-    // let itemIds: any = [];
-    // menuItems.forEach( (menuItem: any) => {
-    //   if(menuItem.rest_id == restaurentId) {
-    //     itemIds.push(menuItem.item_id);
-    //   }
-    // });
-    // itemIds.forEach( (itemId: any) => {
-    //   staticData.items.forEach( (item: any) => {
-    //     if (item.itemId == itemId) {
-    //       this.itemsList.push(item);
-    //     }
-    //   });
-    // });
   }
 
   isItemInCart(itemId: number) {

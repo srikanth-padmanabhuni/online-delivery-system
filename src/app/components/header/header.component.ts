@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getUserName() {
-    this.headerSharingService.userName.subscribe(
+    this.headerSharingService.getUserName().subscribe(
       (userName: any) => {
         this.userName = userName;
       }
