@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faCartPlus, faRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 import { CartsharingService } from 'src/app/services/sharing/cartsharing.service';
+import { NotificationService } from 'src/app/services/sharing/notification.service';
 import { staticData } from 'src/staticData';
 
 @Component({
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
   pageNo: number = 0;
   pageSize: number = 50;
 
-  filter: string = '';
+  filter: string = 'ALL';
   value: string = '';
 
   restaurents: any = [];
@@ -29,7 +30,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private dashboardService: DashboardService,
-    private cartSharingService: CartsharingService
+    private cartSharingService: CartsharingService,
+    private notification: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -54,11 +56,14 @@ export class DashboardComponent implements OnInit {
               this.itemsList.push(itemObj);
             });
           }
+          this.notification.showSuccessMessage("Retreived items successfully!!!", "success");
         } else {
           console.log(items.data);
+          this.notification.showErrorMessage(items.data, "Error");
         }
       }, (error) => {
         console.log(error);
+        this.notification.showErrorMessage(error.msg, "Error");
       }
     )
   }
@@ -81,14 +86,17 @@ export class DashboardComponent implements OnInit {
       (restaurentsData: any) => {
         if(restaurentsData.success) {
           console.log(restaurentsData.data);
-          restaurentsData.data.forEach( (restaurent: any) => {
+          restaurentsData.data.restaurants.forEach( (restaurent: any) => {
             this.restaurents[restaurent.rest_id] = restaurent;
           });
+          this.notification.showSuccessMessage("Retreived restuerents successfully!!!", "success");
         } else {
           console.log(restaurentsData.data);
+          this.notification.showErrorMessage(restaurentsData.data, "Error");
         }
       }, (error) => {
         console.log(error);
+        this.notification.showErrorMessage(error.msg, "Error");
       } 
     )
   }
@@ -147,10 +155,13 @@ export class DashboardComponent implements OnInit {
         currentCardDetails = cartDetails;
       }
     );
+    item.quantity = 1;
+    item.itemTotalPrice = (item.quantity*item.itemPrice);
     currentCardDetails.push(item);
     this.cartSharingService.addToCart(currentCardDetails);
     this.cartSharingService.setTotalObjectsInCart(currentCardDetails.length);
     this.consoleCart();
+    this.notification.showInfoMessage("Item added to cart", "success");
   }
 
   removeFromCart(item: any) {
@@ -171,6 +182,7 @@ export class DashboardComponent implements OnInit {
     }
     this.cartSharingService.addToCart(currentCardDetails);
     this.cartSharingService.setTotalObjectsInCart(currentCardDetails.length);
+    this.notification.showInfoMessage("Item removed from cart", "success");
     this.consoleCart();
   }
 

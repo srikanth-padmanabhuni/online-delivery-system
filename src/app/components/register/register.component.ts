@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderSharingService } from 'src/app/services/sharing/headersharing.service';
+import { NotificationService } from 'src/app/services/sharing/notification.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private headerDataSharing: HeaderSharingService
+    private headerDataSharing: HeaderSharingService,
+    private notification: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -63,9 +65,11 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         } else {
           console.log(registerdUser.data);
+          this.notification.showErrorMessage(registerdUser.data, "Error");
         }
       }, (error) => {
         console.log(error);
+        this.notification.showErrorMessage(error.msg, "Error");
       }
     )
   }

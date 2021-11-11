@@ -1,0 +1,101 @@
+ul {
+    list-style: none;
+    border-bottom: 1px dashed darkred;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background-color: #fffffd;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.mainDiv {
+    min-height: 49rem;
+    background-color: lightgrey;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    margin-bottom: 10px;
+}
+
+.commonForDiv {
+    display: grid;
+    margin-top: 3px;
+    border-left: 1px dashed red;
+    margin-left: 1.5rem;
+}
+
+.deleteDiv {
+    margin-top: 19px;;
+}
+
+.quantityDiv {
+    margin-top: 1.5rem;
+}
+
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px dotted darkred;
+    width: 8rem;
+}
+
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.plusSign {
+    height: 1.9rem;
+    border-left-style: none;
+}
+
+.minusSign {
+    height: 1.9rem;
+    border-right-style: none;
+}
+
+.placeOrderBtn {
+    position: fixed;
+    left: 24%;
+    margin-top: 5px;
+    width: 50%;
+}
+
+.confirmOrder {
+    position: absolute;
+    left: 25%;
+    border: 2px dashed green;
+    padding: 5px;
+    width: 50%;
+    height: 50%;
+    min-height: 30rem;
+    max-height: 35rem;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    z-index: 99999999999;
+    background-color: darkseagreen;
+    top: 13rem;
+}
+
+.confirmOrderInnerMainDiv {
+    margin-left: 10rem;
+    margin-top: 5px;
+}
+
+.confirmOrderInputs {
+    width: 70%;
+    margin-bottom: 5px;
+}
+
+.totalPrice {
+    margin-left: 28rem;
+    width: 100%;
+}
+
+.confirmOrderListPrice {
+    border-left: 1px dashed darkred
+}

@@ -53,4 +53,49 @@ export class CartsharingService {
     localStorage.setItem('cartItems', JSON.stringify(cartObjs));
     this.setTotalObjectsInCart(cartObjs.length);
   }
+
+  removeFromCart(item: any, restaurentId: number) {
+    let currentCardDetails: Array<any> = [];
+    let itemIndex = -1;
+    this.getCartItems().subscribe(
+      (cartDetails: Array<any>) => {
+        currentCardDetails = cartDetails;
+        currentCardDetails.forEach((cartItem: any, index: number) => {
+          if(cartItem.itemId == item.itemId && cartItem.rest_id == restaurentId) {
+            itemIndex = index;
+          }
+        })
+      }
+    );
+    if(itemIndex != -1) {
+      currentCardDetails.splice(itemIndex, 1);
+    }
+    this.addToCart(currentCardDetails);
+    this.setTotalObjectsInCart(currentCardDetails.length);
+  }
+
+  removeFromCartByCartItem(cartItemObj: any) {
+    let currentCardDetails: Array<any> = [];
+    let itemIndex = -1;
+    this.getCartItems().subscribe(
+      (cartDetails: Array<any>) => {
+        currentCardDetails = cartDetails;
+        currentCardDetails.forEach((cartItem: any, index: number) => {
+          if(cartItem.itemId == cartItemObj.itemId && cartItem.rest_id == cartItemObj.rest_id) {
+            itemIndex = index;
+          }
+        })
+      }
+    );
+    if(itemIndex != -1) {
+      currentCardDetails.splice(itemIndex, 1);
+    }
+    this.addToCart(currentCardDetails);
+    this.setTotalObjectsInCart(currentCardDetails.length);
+  }
+
+  initializeCart() {
+    this.cartDetails.next(Object.assign([], []));
+    this.totalCartObjects.next(0);
+  }
 }

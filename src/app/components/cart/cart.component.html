@@ -1,23 +1,72 @@
-<div>
+<div class="mainDiv">
     <ul style="list-style: none;" *ngFor="let cartItem of cartItems">
         <li>
             <div class="row">
-                <div class="col-6">
+                <div class="col-1 deleteDiv">
+                    <button class="btn btn-danger btn-lg" (click)="removeFromCart(cartItem)">
+                        <fa-icon [icon]="deleteIcon"></fa-icon>
+                    </button>
+                </div>
+                <div class="col-4 commonForDiv">
                     <span>{{cartItem.itemName}}</span><br/>
                     <p>{{cartItem.itemDescription}}</p>
                 </div>
-                <div class="col-4">
+                <div class="col-2 commonForDiv">
                     <span>{{cartItem.itemType}}</span><br/>
-                    <span>{{cartItem.itemPrice}}</span>
+                    <span><fa-icon [icon]="rupeeSign"></fa-icon>{{cartItem.itemPrice}}</span>
                 </div>
-                <div class="col-2">
-                    <span>
-                        <button class="btn btn-danger btn-lg" (click)="removeFromCart(cartItem)">
-                            <fa-icon [icon]="deleteIcon"></fa-icon>
-                        </button>
-                    </span>
+                <div class="col-4 commonForDiv">
+                    <div class="row">
+                        <div class="col-6 quantityDiv quantity">
+                            <button class="btn btn-danger btn-sm minusSign" (click)="setQuantity(cartItem, false)">
+                                <fa-icon [icon]="minusSign"></fa-icon>
+                            </button>
+                                <input type="number" class="form-group" [(ngModel)]="cartItem.quantity" readonly> 
+                            <button class="btn btn-success btn-sm plusSign" (click)="setQuantity(cartItem, true)">
+                                <fa-icon [icon]="plusSign"></fa-icon>
+                            </button>
+                        </div>
+                        <div class="col-6 quantityDiv">
+                            <span>
+                                Total: <input type="text" class="form-group" readonly [(ngModel)]="cartItem.itemTotalPrice" > <fa-icon [icon]="rupeeSign"></fa-icon>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </li>
     </ul>
+    <div *ngIf="!finalDialouge">
+        <button class="btn btn-block btn-outline-success placeOrderBtn" (click)="palceOrder()">Place Order</button>
+    </div>
+
+    <div *ngIf="finalDialouge" class="confirmOrder">
+        <ul *ngFor="let item of reqObj.items">
+            <li>
+                <div class="row">
+                    <div class="col-8">
+                        <p> {{item.quantity}} pieces of "{{item.itemName}}" each of cost {{item.itemPrice}} each </p>
+                    </div>
+                    <div class="col-4 confirmOrderListPrice">
+                        <p> = ({{item.quantity}} X {{item.itemPrice}}) {{item.itemTotalPrice}} </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="totalPrice"> Total Cost: <fa-icon [icon]="rupeeSign"></fa-icon>&nbsp;{{reqObj.totalPrice}} </div>
+        <br/>
+        <h5>Billing Address:</h5>
+        <hr>
+        <div class="confirmOrderInnerMainDiv">
+            <input type="email" readonly [(ngModel)]="reqObj.email" class="form-group confirmOrderInputs"> <br/>
+            <textarea 
+                rows="3" 
+                class="form-group confirmOrderInputs"
+                placeholder="Enter Address"
+                [(ngModel)]="reqObj.address">
+            </textarea> <br/>
+            <button class="btn btn-block btn-success confirmOrderInputs" (click)="confirmOrder(reqObj)">Confirm Order</button>
+            <button class="btn btn-block btn-danger confirmOrderInputs" (click)="cancelOrder()">Cancel</button>
+        </div>
+    </div>
 </div>
