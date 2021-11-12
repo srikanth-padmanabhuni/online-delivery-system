@@ -30,6 +30,9 @@ export class DashboardComponent implements OnInit {
   selectedRestaurent: any = null;
   selectedRestaurentId: any = null;
 
+  searchValue: any = 'ALL';
+  searchDropDownList: Array<any> = []
+
   constructor(
     private dashboardService: DashboardService,
     private cartSharingService: CartsharingService,
@@ -184,6 +187,7 @@ export class DashboardComponent implements OnInit {
         if(locations.success) {
           this.notification.showSuccessMessage("Locations fetched successfully", "Success");
           this.locationsList = locations.data.locations;
+          this.setSearchDropDownList();
         } else {
           this.notification.showErrorMessage(locations.data, "Error");
         }
@@ -191,5 +195,19 @@ export class DashboardComponent implements OnInit {
         this.notification.showErrorMessage(error, "Error");
       }
     )
+  }
+
+  setSearchDropDownList() {
+    this.locationsList.forEach( (location: any) => {
+      let index = this.searchDropDownList.indexOf(location.location_city);
+      if(index == -1) {
+        this.searchDropDownList.push(location.location_city);
+      }
+    });
+  }
+
+  selectRestaurentLoc(e: any) {
+    this.value = this.searchValue;
+    this.getRestuarents();
   }
 }

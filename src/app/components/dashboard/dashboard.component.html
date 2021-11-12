@@ -1,6 +1,16 @@
 <div class="row mainDiv">
     <div class="col-4 leftDiv">
-        <h4 class="rest_heading"> Restaurents </h4>
+        <div class="row" style="margin-top: 5px;;">
+            <div class="col-6">
+                <h4 class=""> Restaurents </h4>
+            </div>
+            <div class="col-6 selectDiv">
+                <select [(ngModel)]="searchValue" class="form-control" (ngModelChange)="selectRestaurentLoc($event);">
+                    <option [value]="" selected>ALL</option>
+                    <option *ngFor="let location of searchDropDownList" [value]="location">{{location}}</option>
+                </select>
+            </div>
+        </div>
         <hr/>
         <div *ngIf="restaurents">
             <ul *ngFor="let rest of restaurents">
