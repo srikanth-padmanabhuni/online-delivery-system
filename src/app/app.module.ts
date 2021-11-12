@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AuthguardGuard } from './guards/authguard.guard';
 import { RedirectguardGuard } from './guards/redirectguard.guard';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RedirectguardGuard } from './guards/redirectguard.guard';
     HomeComponent,
     HeaderComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
