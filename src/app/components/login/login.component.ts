@@ -51,10 +51,10 @@ export class LoginComponent implements OnInit {
         if(login.success) {
           const sessionToken = login.data.token;
           const userRole = login.data.role;
-          localStorage.setItem('userName', this.userName);
+          localStorage.setItem('userName', loginData.email);
           localStorage.setItem('role', userRole);
           localStorage.setItem('sessionToken', sessionToken);
-          this.headerDataSharing.setUserName(this.userName);
+          this.headerDataSharing.setUserName();
           this.initializeData();
           this.router.navigate(['/dashboard']);
         } else {

@@ -18,6 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+import { AuthguardGuard } from './guards/authguard.guard';
+import { RedirectguardGuard } from './guards/redirectguard.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,7 @@ import { ToastrModule } from 'ngx-toastr';
       preventDuplicates: true,
     })
   ],
-  providers: [],
+  providers: [AuthguardGuard, RedirectguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

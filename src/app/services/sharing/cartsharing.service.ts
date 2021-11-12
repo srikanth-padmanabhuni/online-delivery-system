@@ -95,6 +95,7 @@ export class CartsharingService {
   }
 
   initializeCart() {
+    localStorage.removeItem("cartItems");
     this.cartDetails.next(Object.assign([], []));
     this.totalCartObjects.next(0);
   }

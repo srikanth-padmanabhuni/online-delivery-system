@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faMinus, faPlus, faRupeeSign, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { CartsharingService } from 'src/app/services/sharing/cartsharing.service';
@@ -14,6 +15,10 @@ export class CartComponent implements OnInit {
   cartItems: Array<any> = [];
   totalCartCount: number = 0;
   totalPrice: number = 0.0;
+  totalQuantity: number = 0;
+
+  rest_id: number = -1;
+  rest_name: string = "";
 
   reqObj: any = {};
   
@@ -27,7 +32,8 @@ export class CartComponent implements OnInit {
   constructor(
     private cartSharingService: CartsharingService,
     private cartService: CartService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private router: Router
   ) { 
     this.getItemsFromCart();
   }
@@ -90,13 +96,32 @@ export class CartComponent implements OnInit {
   }
 
   palceOrder() {
+    this.getTotalQuantity();
+    this.getRestaurentDetails();
     this.reqObj = {}
     this.reqObj.items = this.cartItems;
     this.reqObj.email = localStorage.getItem('userName');
     this.reqObj.address = "";
     this.reqObj.totalPrice = this.totalPrice;
     this.reqObj.totalItems = this.totalCartCount;
+    this.reqObj.quantity = this.totalQuantity;
+    this.reqObj.rest_id = this.rest_id;
+    this.reqObj.rest_name = this.rest_name;
     this.showFinalDialouge(this.reqObj);
+  }
+
+  getRestaurentDetails() {
+    this.cartItems.forEach((cartItem: any) => {
+      this.rest_id = cartItem.rest_id;
+      this.rest_name = cartItem.rest_name;
+    })
+  }
+
+  getTotalQuantity() {
+    this.totalQuantity = 0;
+    this.cartItems.forEach((cartItem: any) => {
+      this.totalQuantity += cartItem.quantity;
+    })
   }
 
   showFinalDialouge(reqObj: any) {
@@ -109,7 +134,10 @@ export class CartComponent implements OnInit {
         if(orderConfirmation.success) {
           console.log(orderConfirmation.data);
           this.cartSharingService.initializeCart();
+          this.finalDialouge = false;
           this.notification.showSuccessMessage("Order Confirmed succesfully!!!", "success");
+          this.notification.showInfoMessage("Your order will be delivered by : "+orderConfirmation.data.orderDetails[0].veh_name, "Info");
+          this.moveToOrders();
         } else {
           console.log(orderConfirmation.data);
           this.notification.showErrorMessage(orderConfirmation.data, "Error");
@@ -119,6 +147,10 @@ export class CartComponent implements OnInit {
         this.notification.showErrorMessage(error.msg, "Error");
       }
     )
+  }
+
+  moveToOrders() {
+    this.router.navigate(['/orders']);
   }
 
   cancelOrder() {

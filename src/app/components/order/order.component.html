@@ -1,1 +1,45 @@
-Orders List Comes Here
+<div class="mainDiv">
+    <h4 class="ordersHeading">Orders</h4>
+    <hr>
+    <div class="noOrders" *ngIf="!ordersList || ordersList.length == 0">
+        No Orders to Display
+    </div>
+    <ul *ngFor="let order of ordersList">
+        <li>
+            <div class="row">
+                <div class="col-3">
+                    <span>
+                        <b>Order RefId:</b> {{order.order_id}} <br/>
+                        <b>Ordered By:</b> {{order.user_emailid}}
+                    </span>
+                </div>
+                <div class="col-3">
+                    <span>
+                        <b>Restaurent:</b> {{order.rest_name}} <br/>
+                        <b>Delivery Address:</b> {{order.order_address}}
+                    </span>
+                </div>
+                <div class="col-3">
+                    <span>
+                        <b>Total Items:</b> {{order.order_quantity}} <br/>
+                        <button class="btn btn-sm btn-link" style="margin-left: -0.5rem" (click)="loadOrderItems(order.order_id)">Load More Details...</button>
+                    </span>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-sm btn-danger" style="margin-top: 0.8rem" (click)="cancelOrder(order.order_id)"> Cancel Order </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div *ngIf="showOrderedItems" class="confirmOrder">
+        <h3>Items:</h3>
+        <hr>
+        <ul *ngFor="let item of orderItems">
+            <li>
+                <p> {{item.quantity}} pieces of "{{item.itemName}}" each of cost {{item.itemPrice}} each -> Rs.{{item.itemTotalPrice}}</p>
+            </li>
+        </ul>
+        <button class="btn btn-sm btn-info confirmOrderInputs" (click)="closeOrderedItems()"> Close </button>
+    </div>
+</div>

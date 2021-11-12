@@ -25,6 +25,8 @@ export class DashboardComponent implements OnInit {
 
   restaurents: any = [];
 
+  locationsList: any = [];
+
   selectedRestaurent: any = null;
   selectedRestaurentId: any = null;
 
@@ -36,6 +38,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRestuarents();
+    this.getLocations();
   }
 
   getItems() {
@@ -171,6 +174,21 @@ export class DashboardComponent implements OnInit {
     this.cartSharingService.totalCartObjects.subscribe(
       (totalCount: number) => {
         console.log(totalCount);
+      }
+    )
+  }
+
+  getLocations() {
+    this.dashboardService.getLocations().subscribe(
+      (locations: any) => {
+        if(locations.success) {
+          this.notification.showSuccessMessage("Locations fetched successfully", "Success");
+          this.locationsList = locations.data.locations;
+        } else {
+          this.notification.showErrorMessage(locations.data, "Error");
+        }
+      }, (error) => {
+        this.notification.showErrorMessage(error, "Error");
       }
     )
   }

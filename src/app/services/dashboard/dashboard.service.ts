@@ -37,4 +37,10 @@ export class DashboardService {
 
     return this.httpClient.get(this.baseUrl+url, {headers: this.headers});
   }
+
+  getLocations() {
+    let url = this.baseUrl + dashboardRoutes.listLocations;
+
+    return this.httpClient.get(url, {headers: this.headers});
+  }
 }

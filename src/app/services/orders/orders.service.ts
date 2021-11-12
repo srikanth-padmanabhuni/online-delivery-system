@@ -20,15 +20,24 @@ export class OrdersService {
                 .set('secretappkey', environment.secretAppKey);
   }
 
-  getOrders() {
+  getOrders(emailId: any) {
     let url = this.baseUrl + orderRoutes.getOrders;
+    url = url.replace(":EMAIL", emailId);
     return this.httpClient.get(url, {headers: this.headers});
   }
 
-  cancelOrder(orderId: number) {
+  cancelOrder(orderId: number, emailId: any) {
     let url = this.baseUrl + orderRoutes.cancelOrder;
     url = url.replace(':ORDER_ID', orderId.toString());
+    url = url.replace(':EMAIL', emailId);
 
     return this.httpClient.delete(url, {headers: this.headers});
+  }
+
+  getOrderItems(orderId: number) {
+    let url = this.baseUrl + orderRoutes.getOrderItems;
+    url = url.replace(':ORDER_ID', orderId.toString());
+
+    return this.httpClient.get(url, {headers: this.headers});
   }
 }

@@ -1,4 +1,5 @@
 export const orderRoutes = {
-    getOrders: '/get/orders',
-    cancelOrder: '/cancel/order/:ORDER_ID'
+    getOrders: '/getOrders?email=:EMAIL',
+    cancelOrder: '/cancelOrder?orderId=:ORDER_ID&email=:EMAIL',
+    getOrderItems: '/getOrderItems?order_id=:ORDER_ID'
 }

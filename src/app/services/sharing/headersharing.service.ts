@@ -12,8 +12,8 @@ export class HeaderSharingService {
     this.getUsernameFromLocal();
   }
 
-  setUserName(userName: string) {
-    this.userName.next(userName);
+  setUserName() {
+    this.userName.next(localStorage.getItem('userName'));
   }
 
   getUserName() {

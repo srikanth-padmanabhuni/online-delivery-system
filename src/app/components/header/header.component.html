@@ -1,22 +1,29 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark margins">
+<nav class="navbar navbar-expand-lg sticky-top margins">
     <div class="row mainDiv">
         <div class="col-4 leftDiv">
-            <h5 class="navbar-brand col-3" style="color: wheat;">Online Food Delivery System</h5>
+            <h5 class="navbar-brand col-3" style=" cursor: pointer;" (click)="moveToHome()">Online Food Delivery System</h5>
         </div>
         <div class="col-7 rightDiv" *ngIf="userName">
             <div class="row" style="width: 111%;">
                 <div class="col-6">
-                    <h5 style="color: wheat;">
+                    <h5 style="">
                         <fa-icon [icon]="userIcon"></fa-icon>
                         {{userName}}
                     </h5>
                 </div>
-                <div class="col-6" style="margin-top: -7px;">
+                <div class="col-3" style="margin-top: -7px;">
                     <span style="float: right;">
                         <button class="btn" (click)="moveToCart()" style="margin-top: -10px;">
-                            <fa-icon [icon]="cartIcon" style="color: wheat;font-size: 30px;"></fa-icon><span style="color: wheat;">({{cartCount}})</span>
+                            <fa-icon [icon]="cartIcon" style="font-size: 30px;"></fa-icon><span style="">({{cartCount}})</span>
                         </button>
                     </span>
+                    <span style="float: right;">
+                        <button class="btn" (click)="moveToOrders()" style="margin-top: -10px;">
+                            <fa-icon [icon]="orderIcon" style="font-size: 30px;"></fa-icon>
+                        </button>
+                    </span>
+                </div>
+                <div class="col-3" style="margin-top: -7px;">
                     <span style="float: right;">
                         <button class="btn btn-outline-success" (click)="logout()">Logout</button>
                     </span>        
