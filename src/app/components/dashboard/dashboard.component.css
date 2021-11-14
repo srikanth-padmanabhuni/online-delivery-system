@@ -16,7 +16,7 @@
     min-height: 49rem;
     scroll-behavior: smooth;
     overflow: auto;
-    background-color: lightgray;
+    background-color: rgb(175, 228, 245);
     border-radius: 10px;
 }
 
@@ -42,7 +42,7 @@ ul {
 .rightDiv {
     border: 1px dashed #f39393;
     border-radius: 10px;
-    background-color: lightgrey;
+    background-color: rgb(108, 189, 226);
     min-height: 49rem;
     overflow: auto
 }

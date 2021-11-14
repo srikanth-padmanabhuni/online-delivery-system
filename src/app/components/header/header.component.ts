@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { faCartArrowDown, faShoppingBasket, faUserMd } from '@fortawesome/free-solid-svg-icons';
+import { faCartArrowDown, faShoppingBasket, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CartsharingService } from 'src/app/services/sharing/cartsharing.service';
 import { HeaderSharingService } from 'src/app/services/sharing/headersharing.service';
 import { NotificationService } from 'src/app/services/sharing/notification.service';
@@ -15,7 +15,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class HeaderComponent implements OnInit {
 
   userName: string = '';
-  userIcon = faUserMd;
+  userIcon = faUser;
 
   cartIcon = faCartArrowDown;
   cartCount: number = 0;

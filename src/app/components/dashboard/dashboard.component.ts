@@ -85,6 +85,14 @@ export class DashboardComponent implements OnInit {
         if(restaurentsData.success) {
           console.log(restaurentsData.data);
           this.restaurents = restaurentsData.data.restaurants;
+          this.restaurents.map((rest: { rest_id: number; image: string; }) => {
+            if (rest.rest_id % 2 === 0) {
+              rest.image = '../../../assets/rest1.jfif';
+            } else {
+              rest.image = '../../../assets/rest2.jfif';
+            }
+            return rest;
+          });
           this.notification.showSuccessMessage("Retreived restuerents successfully!!!", "success");
         } else {
           console.log(restaurentsData.data);
