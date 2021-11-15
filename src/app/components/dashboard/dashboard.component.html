@@ -23,19 +23,25 @@
                         value="{{rest.rest_id}}" 
                         [(ngModel)]="selectedRestaurentId"
                         (change)="selectRestaurent(selectedRestaurentId)">-->
-                    <img class="images" 
-                        src = "{{rest.image}}" 
-                        alt='Restaurent Image' 
-                        class="rest_img img-circle img-responsive"
-                        (click)="selectRestaurent(rest.rest_id)"    
-                    />
-                    <span [ngClass]="selectedRestaurentId === rest.rest_id ? 'checkMark' : 'dontShow'"> &check; </span>
-                    <label class="form-check-label" for="selectedRestaurentId" style="width: 90%;">
-                        <span>{{rest.rest_name}}</span>
-                        <span class="rating"> 
-                            <fa-icon [icon]="starIcon" style="color: darkcyan"></fa-icon> &nbsp;{{rest.rest_rating}}
-                        </span>
-                    </label>
+                    <div class="row" style="width: 100%;">
+                        <div class="col-4">
+                            <img class="images" 
+                                src = "{{rest.image}}" 
+                                alt='Restaurent Image' 
+                                class="rest_img img-circle img-responsive"
+                                (click)="selectRestaurent(rest.rest_id)"    
+                            />
+                            <span [ngClass]="selectedRestaurentId === rest.rest_id ? 'checkMark' : 'dontShow'"> &check; </span>
+                        </div>
+                        <div class="col-8" style="margin-top: 3rem;">
+                            <label class="form-check-label" for="selectedRestaurentId" style="width: 90%;">
+                                <span>{{rest.rest_name}}</span>
+                                <span class="rating"> 
+                                    <fa-icon [icon]="starIcon" style="color: darkcyan"></fa-icon> &nbsp;{{rest.rest_rating}}
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -53,7 +59,7 @@
                         <div class="col-1 item_list_firstDiv">
                             <span *ngIf="isItemInCart(item.itemId)">
                                 <button class="btn" (click)="removeFromCart(item);">
-                                    <fa-icon [icon]="cartIcon" style="font-size: xx-large;color: green;"></fa-icon>
+                                    <fa-icon [icon]="cartIcon" style="font-size: xx-large;color:#17e317;"></fa-icon>
                                 </button>
                             </span>
                             <span *ngIf="!isItemInCart(item.itemId)">

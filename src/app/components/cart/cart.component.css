@@ -3,14 +3,14 @@ ul {
     border-bottom: 1px dashed darkred;
     padding-left: 4rem;
     padding-right: 4rem;
-    background-color: #fffffd;
+    background-color: #fffffd33;
     border-radius: 15px;
     margin: 10px;
 }
 
 .mainDiv {
     min-height: 49rem;
-    background-color: rgb(108, 189, 226);
+    background-color: rgb(175 228 245 / 32%); /*rgb(108, 189, 226);*/
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -77,7 +77,7 @@ input {
     overflow: scroll;
     scroll-behavior: smooth;
     z-index: 99999999999;
-    background-color: darkseagreen;
+    background-color: #566eabcf; /*darkseagreen;*/
     top: 13rem;
 }
 
@@ -105,4 +105,5 @@ input {
     top: 50%;
     left: 39%;
     font-size: xx-large;
+    color: #000;
 }

@@ -87,9 +87,9 @@ export class DashboardComponent implements OnInit {
           this.restaurents = restaurentsData.data.restaurants;
           this.restaurents.map((rest: { rest_id: number; image: string; }) => {
             if (rest.rest_id % 2 === 0) {
-              rest.image = '../../../assets/rest1.jfif';
+              rest.image = '../../../assets/restaurent_1.jpg';
             } else {
-              rest.image = '../../../assets/rest2.jfif';
+              rest.image = '../../../assets/restaurent_2.jpg';
             }
             return rest;
           });

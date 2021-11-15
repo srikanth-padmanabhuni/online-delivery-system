@@ -18,7 +18,7 @@
     min-height: 49rem;
     scroll-behavior: smooth;
     overflow: auto;
-    background-color: rgb(175, 228, 245);
+    background-color: rgb(175 228 245 / 32%); /*rgb(175, 228, 245);*/
     border-radius: 10px;
 }
 
@@ -44,7 +44,7 @@ ul {
 .rightDiv {
     border: 1px dashed #f39393;
     border-radius: 10px;
-    background-color: rgb(108, 189, 226);
+    background-color: rgb(175 228 245 / 32%); /*rgb(108, 189, 226);*/
     min-height: 49rem;
     overflow: auto
 }
@@ -63,7 +63,7 @@ ul {
 .items_list {
     border-bottom: 1px solid darkred;
     height: 6.3rem;
-    background-color: aliceblue;
+    background-color: #fffffd33;
     padding: 4px;
 }
 
@@ -105,10 +105,11 @@ ul {
 }
 
 .rest_img {
-    max-height: 70px;
-    max-width: 70px;
+    /* max-height: 70px;
+    max-width: 70px; */
     border-radius: 15px;
     margin-right: 3px;
+    height: 130px;
 }
 
 .checkMark {
@@ -116,7 +117,8 @@ ul {
     color: #f9fafb;
     position: absolute;
     z-index: 9999999999999;
-    margin-left: 0.6rem;
+    margin-left: -5.3rem;
+    margin-top: 2rem;
 }
 
 .dontShow {

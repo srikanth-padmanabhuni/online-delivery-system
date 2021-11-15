@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top margins">
+<nav class="navbar navbar-expand-lg sticky-top margins" style="color: wheat; position: static;">
     <div class="row mainDiv">
         <div class="col-4 leftDiv">
             <h5 class="navbar-brand col-3" style=" cursor: pointer;" (click)="moveToHome()">Online Food Delivery System</h5>
@@ -14,12 +14,12 @@
                 <div class="col-3" style="margin-top: -7px;">
                     <span style="float: right;">
                         <button class="btn" (click)="moveToCart()" style="margin-top: -10px;">
-                            <fa-icon [icon]="cartIcon" style="font-size: 30px;"></fa-icon><span style="">({{cartCount}})</span>
+                            <fa-icon [icon]="cartIcon" style="font-size: 30px;color: wheat;"></fa-icon><span style="color: wheat;">({{cartCount}})</span>
                         </button>
                     </span>
                     <span style="float: right;">
                         <button class="btn" (click)="moveToOrders()" style="margin-top: -10px;">
-                            <fa-icon [icon]="orderIcon" style="font-size: 30px;"></fa-icon>
+                            <fa-icon [icon]="orderIcon" style="font-size: 30px;color: wheat;"></fa-icon>
                         </button>
                     </span>
                 </div>

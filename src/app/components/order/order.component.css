@@ -3,14 +3,14 @@ ul {
     border-bottom: 1px dashed darkred;
     padding-left: 4rem;
     padding-right: 4rem;
-    background-color: #fffffd;
+    background-color: #fffffd33;
     border-radius: 15px;
     margin: 10px;
 }
 
 .mainDiv {
     min-height: 49rem;
-    background-color: rgb(108, 189, 226); /*lightgrey;*/
+    background-color: rgb(175 228 245 / 32%); /*rgb(108, 189, 226); lightgrey;*/
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -31,7 +31,7 @@ ul {
     overflow: scroll;
     scroll-behavior: smooth;
     z-index: 99999999999;
-    background-color: darkseagreen;
+    background-color: #566eabcf;/*darkseagreen;*/
     top: 13rem;
 }
 
@@ -51,4 +51,5 @@ ul {
     top: 45%;
     left: 38%;
     font-size: xxx-large;
+    color: #000;
 }
