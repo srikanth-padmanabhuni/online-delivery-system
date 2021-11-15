@@ -10,7 +10,7 @@ ul {
 
 .mainDiv {
     min-height: 49rem;
-    background-color: lightgrey;
+    background-color: rgb(108, 189, 226); /*lightgrey;*/
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;

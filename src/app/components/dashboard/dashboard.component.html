@@ -15,17 +15,21 @@
         <div *ngIf="restaurents">
             <ul *ngFor="let rest of restaurents">
                 <li class="rest_list">
-                    <img class="images" src = "{{rest.image}}" alt='altText' height="250" width="250"
-                        style="margin-left: 100px;"
-                    /><br><br>
-                    <input 
+                    <!--<input 
                         class="form-check-input" 
                         type="radio" 
                         name="selectedRestaurentId" 
                         id="selectedRestaurentId" 
                         value="{{rest.rest_id}}" 
                         [(ngModel)]="selectedRestaurentId"
-                        (change)="selectRestaurent(selectedRestaurentId)">
+                        (change)="selectRestaurent(selectedRestaurentId)">-->
+                    <img class="images" 
+                        src = "{{rest.image}}" 
+                        alt='Restaurent Image' 
+                        class="rest_img img-circle img-responsive"
+                        (click)="selectRestaurent(rest.rest_id)"    
+                    />
+                    <span [ngClass]="selectedRestaurentId === rest.rest_id ? 'checkMark' : 'dontShow'"> &check; </span>
                     <label class="form-check-label" for="selectedRestaurentId" style="width: 90%;">
                         <span>{{rest.rest_name}}</span>
                         <span class="rating"> 

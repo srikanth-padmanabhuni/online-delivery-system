@@ -9,6 +9,8 @@
     padding: 5px;
    /*background-color: gainsboro;*/
     font-size: large;
+    align-items: center;
+    display: flex;
 }
 
 .leftDiv {
@@ -100,4 +102,23 @@ ul {
 .selectDiv {
     display: flex;
     align-items: center;
+}
+
+.rest_img {
+    max-height: 70px;
+    max-width: 70px;
+    border-radius: 15px;
+    margin-right: 3px;
+}
+
+.checkMark {
+    font-size: 2.5rem;
+    color: #f9fafb;
+    position: absolute;
+    z-index: 9999999999999;
+    margin-left: 0.6rem;
+}
+
+.dontShow {
+    display: none;
 }

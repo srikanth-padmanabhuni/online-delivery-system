@@ -116,6 +116,7 @@ export class DashboardComponent implements OnInit {
   }
 
   selectRestaurent(restaurentId: any) {
+    this.selectedRestaurentId = restaurentId;
     this.initializeSelectedrestaurent(restaurentId); 
     this.getItems();
   }
